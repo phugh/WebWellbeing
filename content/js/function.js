@@ -302,7 +302,7 @@ function getNgrams(arr, n) {
 const getMatches = (arr) => {
   const matches = {};
   const tokens = [...new Set(arr)];
-  // async through each category in lexicon
+  // loop through PERMA categories
   const categories = Object.keys(permaLexicon); // categories in lexicon
   for (let category of categories) {
     let match = 0;
