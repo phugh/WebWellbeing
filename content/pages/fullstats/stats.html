@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web Wellbeing Text Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../libs/DataTables/datatables.min.css"/>
+        <style>
+            body {color: #212121; margin: 0;}
+            table {color: #212121;}
+            .large {font-size: 24px;}
+            .right {float: right;}
+            .chartdiv {position: relative; margin-top: 30px; max-width: 500px; margin: auto;}
+            .hidden {display: none !important;}
+            .top {margin-top: 0; padding: 10px; text-align: center; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+            .card {padding: 20px; margin: 10px; background-color: white; color: #212121; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); border-radius: 3px;}
+            .red {z-index: 1000; cursor: pointer; padding: 6px; margin-bottom: 10px; background-color: #e53935; color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); border-radius: 3px;}
+            .bottom {vertical-align: middle; line-height: normal; padding-right: 3px;}
+            .icon {fill: white; filter: invert(1);}
+            table { 
+                border-collapse: collapse; 
+                margin: auto;
+            }
+            /* Zebra striping */
+            tr:nth-of-type(odd) { background: #eee; }
+            th { 
+                background: #03A9F4; 
+                color: white; 
+                font-weight: bold; 
+            }
+            td, th { 
+                padding: 10px; 
+                border: 1px solid #ccc; 
+                text-align: left; 
+                font-size: 18px;
+            }
+            .dark {color: white; background-color: #1976D2;}
+            .light {color: white; background-color: #BBDEFB;}
+            .primary {color: white; background-color: #2196F3;}
+            .accent {color: white; background-color: #03A9F4;}
+        </style>
+    </head>
+    <body class="light">
+        <div class="top dark">Web Wellbeing Statistics</div>
+        <div id="loading" class="card">
+            <p class="large">LOADING...</p>
+        </div>
+        <div id="data" class="hidden">
+            <div class="card">
+                <h3>Overall</h3>
+                <table id="overall">
+                    <thead>
+                        <tr>
+                            <th>Unique Domains</th>
+                            <th>Page Views</th>
+                            <th>Total Positivity</th>
+                            <th>Total Negativity</th>
+                            <th>Average Positivity</th>
+                            <th>Average Negativity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="obody"></tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>By Domain</h3>
+                <div id="delete-all" class="red right">
+                    <span><img class="icon bottom"src="../../../libs/img/delete_forever.svg" alt="Delete all stored data">Delete all</span>
+                </div>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Domain</th>
+                            <th>Page Views</th>
+                            <th>Total Positivity</th>
+                            <th>Total Negativity</th>
+                            <th>Average Positivity</th>
+                            <th>Average Negativity</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../libs/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../../../libs/DataTables/datatables.min.js"></script>
+        <script type="text/javascript" src="js/stats.js"></script>
+    </body>
+</html>

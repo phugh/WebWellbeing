@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web Wellbeing Options</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../libs/css/materialize.min.css" rel="stylesheet"/>
+    <style>
+      html {background-color: #f5f5f5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
+      body {display: flex; min-height: 100vh; flex-direction: column; margin:0;}
+      main {flex: 1 0 auto;}
+      .page-footer {padding-top: 0;}
+      .input-field input[type]:focus + label, .materialize-textarea:focus + label {color: #2196f3 !important;}
+      .input-field input[type]:focus, .materialize-textarea:focus {border-bottom: 1px solid #2196f3 !important;}
+      .input-field .prefix {color: #000;}
+      .input-field .prefix.active {color: #2196f3;}
+      .dropdown-content li>a, .dropdown-content li>span {color: #2196f3;}
+      [type="checkbox"]:checked {color: #2196f3 !important;}
+      .page-footer {background-color: #1976D2;}
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div id="status"></div>
+      <div class="row">
+
+        <div id="about" class="col s12">
+          <div class="row"></div>
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Welcome</span>
+                  <p><strong>Web Wellbeing is for entertainment purposes only!</strong></p>
+                  <br>
+                  <p>Web Wellbeing is here to help you make more informed choices about the type of content you view and to be more mindful about the websites you visit.</p>
+                  <br>
+                  <p>Web Wellbeing rates the pages you view based on the PERMA model of wellbeing. PERMA stands for <strong>P</strong>ositive emotion, <strong>E</strong>ngagement, Positive <strong>R</strong>elationships, <strong>M</strong>eaning, and <strong>A</strong>ccomplishment. These are the five components of psychological wellbeing. Each has a negative counterpart: negative emotion, disengagement, negative relationships, lack of meaning, and lack of accomplishment.</p>
+                  <br>
+                  <p>Web Wellbeing scans each element on a page and assigns it a wellbeing rating based on the PERMA components above. If 3/5 negative components score higher than their positive counterparts the element will be redacted or the page will be blocked depending on what action and threshold you select below.</p>
+                  <br>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Action</span>
+                  <p>What should this extension do when it detects a page in which the majority of elements meet your block tolerance? (See below to change tolerance)</p>
+                  <div class="input-field col s12">
+                      <select id="action">
+                        <option value="none">Nothing</option>
+                        <option value="redact">Redact negative elements</option>
+                        <option value="block">Block the page</option>
+                      </select>
+                  </div>
+                  <p>&nbsp;</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Block Tolerance</span>
+                  <p>There are 10 wellbeing components: 5 positive, 5 negative. By default, the action you have chosen above will be triggered when 3 or more of those negative components are present on the page. You can control that number here.</p>
+                  <br>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input value="3" id="blockTol" type="number" min="1" max="5">
+                      <label class="active" for="blockTol">Negative components threshold:</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Badge Display</span>
+                  <p>Here you can choose what will be displayed on the icon next to your omnibox (address bar).</p>
+                  <br>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="badge">
+                        <option value="p-page">The positivity score for the page</option>
+                        <option value="n-page">The negativity score for the page</option>
+                        <option value="filtered">Number of elements above your tolerance threshold</option>
+                        <option value="none">Nothing</option>
+                      </select>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Page Elements to Scan</span>
+                    <p>If this extension is causing your browser to slow down, deselect some of the elements below.</p><br>
+                    <p>We recommend that you leave paragraphs, links, and headers selected for best results.</p><br>
+                    <p>
+                      <input type="checkbox" id="inc_p"/>
+                      <label for="inc_p">Paragraphs</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" id="inc_a"/>
+                      <label for="inc_a">Links</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" id="inc_h"/>
+                      <label for="inc_h">Headers</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" id="inc_li"/>
+                      <label for="inc_li">Lists</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" id="inc_phr"/>
+                      <label for="inc_phr">Spans and Phrase tags ('em', 'strong', etc.)</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" id="inc_x"/>
+                      <label for="inc_x">The rest (tables, blockquotes, labels, etc.)</label>
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Misc.</span>
+                    <p>If Web Wellbeing is causing your browser to slow down, deselect some of the options below.</p>
+                    <br>
+                    <p>The lexical data that Web Wellbeing uses contains contiguous chunks of text, two and three chunks long, called bigrams and trigrams respectively. Including bigrams and trigrams makes the analysis more accurate but triples the processing power required.</p>
+                    <br>
+                    <p>
+                      <input type="checkbox" id="inc_n"/>
+                      <label for="inc_n">Include bigrams and trigrams</label>
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">References</span>
+                    <p>The PERMA model of wellbeing comes primarily from the work of Dr. Martin Seligman. See the 2011 book "Flourish" for more info.</p>
+                    <br>
+                    <p>The wellbeing assignment code is based on Schwartz, H.A., Sap, M., Kern, M.L., Eichstaedt, J.C., Kapelner, A., Agrawal, M., Blanco, E., Dziurzynski, L., Park, G., Stillwell, D. & Kosinski, M. (2016). Predicting individual well-being through the language of social media. In Biocomputing 2016: Proceedings of the Pacific Symposium (pp. 516-527).</p>
+                    <br>
+                    <p>Web Wellbeing uses the permaV3_dd lexicon data from <a href="http://www.wwbp.org/lexica.html" rel="noopener" target="_blank">http://www.wwbp.org/lexica.html</a>. Used under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported licence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              <button id="save" class="right waves-effect waves-light btn blue">Save</button>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer class="container page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+            &copy; 2018 P. Hughes
+            <!--<a class="grey-text text-lighten-5 right" href="https://wwww.phugh.es">Website</a>-->
+          </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="../libs/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../libs/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>
+  </body>
+</html>

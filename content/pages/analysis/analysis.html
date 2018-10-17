@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web Wellbeing Text Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../../js/lex.js"></script>
+        <script type="text/javascript" src="../../js/function.js"></script>
+        <script type="text/javascript" src="../../../libs/js/Chart.min.js"></script>
+        <style>
+            body {color: #212121; margin: 0;}
+            .large {font-size: 24px;}
+            .chartdiv {position: relative; margin-top: 30px; max-width: 500px; margin: auto;}
+            .hidden {display: none !important;}
+
+            .dark {color: white; background-color: #1976D2;}
+            .light {color: white; background-color: #BBDEFB;}
+            .primary {color: white; background-color: #2196F3;}
+            .accent {color: white; background-color: #03A9F4;}
+
+            .top {margin-top: 0; padding: 10px; text-align: center; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+            .card {padding: 20px; margin: 10px; background-color: white; color: #212121; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); border-radius: 3px;}
+        </style>
+    </head>
+    <body class="light">
+        <div class="top dark">Web Wellbeing Text Analysis</div>
+        <div id="loading" class="card">
+            <p class="large">LOADING...</p>
+            <p>This functionality is still in testing. If this loading screen appears for more than 5 seconds, please close and try again.</p>
+        </div>
+        <div id="data" class="hidden">
+            <div class="card">
+                <div class="chartdiv">
+                    <canvas id="radar"></canvas>
+                </div>
+                <p>Points outside the black line are positively associated with that area of wellbeing, points inside the black line are negatively associated. Its important to remember that each area of wellbeing in independent, so a website being negatively associated with positive emotion, doesn't neccesarily mean it will also be positively associated for negative emotion.</p>
+            </div>
+            <div class="card">
+                <p><strong>Text:</strong></p>
+                <p id="text">No data</p>
+                <p><strong>Number of tokens analysed:</strong></p>
+                <p id="tokens">No data</p>
+                <p><strong>Cleaned text:</strong></p>
+                <p id="clean">No data</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/analysis.js"></script>
+    </body>
+</html>

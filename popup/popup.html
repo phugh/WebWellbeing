@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Wellbeing Page Statistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {min-width: 250px; min-height: 100px; color: #212121; margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
+      .card {margin: 10px; padding: 5px 5px 5px 10px; background-color: white; color: #212121; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); border-radius: 3px;}
+      .chartdiv {position: relative; margin-top: 30px; max-width: 300px; margin:auto;}
+      .hidden {display: none !important; visibility: hidden;}
+      .score {font-weight: 800;}
+      .top {width: 100%; padding: 10px; text-align: center; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+      /* bottom buttons */
+      .bottom {padding-right: 7px; margin-bottom: 10px; margin-top: -3px;}
+      .icon {margin-right: 7px;}
+      .left {float: left; margin-left: 10px;}
+      .right {float: right;  margin-right: 10px;}
+      .vertical {height: 24px; line-height: 24px; vertical-align: middle; line-height: normal;}
+      /* colours */
+      .dark {color: white; background-color: #1976D2;}
+      .light {color: white; background-color: #BBDEFB;}
+      .primary {color: white; background-color: #2196F3;}
+      .accent {color: white; background-color: #03A9F4;}
+      .positive {color: rgb(93, 202, 93);}
+      .negative {color: rgba(255,99,132);}
+    </style>
+    <script type="text/javascript" src="../libs/js/Chart.min.js"></script>
+    <script type="text/javascript" src="../content/js/function.js"></script>
+  </head>
+  <body class="light">
+      <div class="top dark">Page Wellbeing Statistics</div>
+      <div id="data" class="hidden">
+        <div class="card">
+          <p><strong>This Page:</strong></p>
+          <p>The text on this page is positively associated with <span id="pos" class="score positive">0</span>/5 positive wellbeing components and <span id="neg" class="score negative">0</span>/5 negative wellbeing components.</p>
+          <p>The total page score is: <span id="pos-total" class="score positive">0</span> positive / <span id="neg-total" class="score negative">0</span> negative.</p>
+          <div class="chartdiv">
+            <canvas id="p-radar" width="200" height="200"></canvas>
+          </div>
+          <p>Points outside the black line are positively associated with that area of wellbeing, points inside the black line are negatively associated. Its important to remember that each area of wellbeing in independent, so a website being negatively associated with positive emotion, doesn't neccesarily mean it will also be positively associated for negative emotion.</p>
+        </div>
+        <div class="card">
+          <p><strong>Page Elements:</strong></p>
+          <p><span id="neg-cent" class="score negative">0</span>% (<span id="neg-num">0</span>/<span class="elems">0</span>) of this page's text elements were majority negative, <span id="pos-cent" class="score positive">0</span>% (<span id="pos-num">0</span>/<span class="elems">0</span>) were majority positive.</p>
+          <p><span id="blocked" class="score negative">0</span> elements met your criteria for redaction or blocking (you can change the redaction/blocking threshold in the options).</p>
+          <div class="chartdiv">
+            <canvas id="pie" width="200" height="200"></canvas>
+          </div>
+        </div>
+        <div id="domain-card" class="card hidden">
+          <p><strong>Whole Domain - <span class="domain"></span>:</strong></p>
+          <p>You've viewed pages on the domain <span class="domain"></span> <span id="domain-visits" class="score">0</span> times.</p>
+          <p>Your average scores for this domain are: <span id="domain-pos-total" class="score positive">0</span> positive / <span id="domain-neg-total" class="score negative">0</span> negative.</p>
+          <div class="chartdiv">
+            <canvas id="d-radar" width="200" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="error">
+        <div class="card">
+          <p>No data to display.</p>
+          <p>Try <a href="#!" id="refresh">refreshing</a> the page.</p>
+        </div>
+      </div>
+      <p>
+        <a href="#!" id="stats" class="bottom left card"><img src="../libs/img/assessment.svg" alt="" class="vertical icon">Full Stats</a>
+        <a href="#!" id="opts" class="bottom right card"><img src="../libs/img/settings.svg" alt="" class="vertical icon">Options</a>
+      </p>
+      <br>
+      <script type="text/javascript" src="js/popup.js"></script>
+  </body>
+</html>
