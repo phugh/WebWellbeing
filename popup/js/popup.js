@@ -41,8 +41,8 @@ window.addEventListener('DOMContentLoaded', function() {
                 const pos = sumArr(Object.values(x.PERMA.POS));
                 const neg = sumArr(Object.values(x.PERMA.NEG));
                 document.getElementById('domain-visits').textContent = x.V;
-                document.getElementById('domain-pos-total').textContent = (pos / neg).toFixed(2);
-                document.getElementById('domain-neg-total').textContent = (neg / x.V).toFixed(2);
+                document.getElementById('domain-pos-total').textContent = (pos / x.V).toFixed();
+                document.getElementById('domain-neg-total').textContent = (neg / x.V).toFixed();
                 createDomainChart(x, document.getElementById('d-radar').getContext('2d'));
                 document.getElementById('domain-card').classList.remove('hidden');
               }
